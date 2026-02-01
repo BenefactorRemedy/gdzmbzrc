@@ -48,7 +48,8 @@ python -m unittest test_abc_analysis.py -v
 
 ### Документация
 
-Подробная документация доступна в файле [ABC_ANALYSIS_GUIDE.md](ABC_ANALYSIS_GUIDE.md)
+- **[USAGE_GUIDE.md](USAGE_GUIDE.md)** - Как работать с запросами по ABC анализу (примеры всех типов запросов)
+- **[ABC_ANALYSIS_GUIDE.md](ABC_ANALYSIS_GUIDE.md)** - Подробная документация модуля и API reference
 
 ### Структура проекта
 
