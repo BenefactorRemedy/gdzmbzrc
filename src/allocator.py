@@ -1,6 +1,7 @@
 """
 Ядро распределения запасов с приоритетами A → B → C
 """
+import datetime
 from typing import List, Dict
 from src.models import InputData, Order, Stock, AllocationResult
 
@@ -128,6 +129,3 @@ class Allocator:
                 if already_allocated > 0:
                     self.available_stock[order.sku] = available + already_allocated
                 return 0
-
-
-import datetime
