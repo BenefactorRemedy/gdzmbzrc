@@ -403,11 +403,15 @@ class TestMetrics:
         """Уровень риска: Yellow"""
         from src.models import AllocationResult
         
+        # Yellow: Fill Rate между 70-90% и Count Zero = 0
         results = [
             AllocationResult('O1', 'ITEM-A', 10, 10, 'A'),
             AllocationResult('O2', 'ITEM-A', 10, 10, 'A'),
-            AllocationResult('O3', 'ITEM-A', 10, 5, 'A'),
+            AllocationResult('O3', 'ITEM-A', 10, 10, 'A'),
+            AllocationResult('O4', 'ITEM-A', 10, 10, 'A'),
+            AllocationResult('O5', 'ITEM-A', 10, 5, 'A'),  # Частично
         ]
         
         metrics = calculate_all_metrics(results)
+        # Fill Rate = 80% (4 из 5), Count Zero = 0
         assert metrics['risk_level'] == 'Yellow'
