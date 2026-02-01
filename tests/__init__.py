@@ -1,0 +1,3 @@
+"""
+Тесты для SC-PRIORITY-DEMO-LITE RU v2.2
+"""
