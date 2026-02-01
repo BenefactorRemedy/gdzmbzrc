@@ -1,0 +1,3 @@
+ORD001 | ITEM-A | 50 | B
+ORD002 | ITEM-A | 30 | A
+ORD003 | ITEM-A | 20 | C
