@@ -16,7 +16,7 @@ SC-PRIORITY-DEMO-LITE RU v2.2 — это детерминированная Pyth
 - 🔄 **Частичная отгрузка** — режимы "все или ничего" и частичное выполнение
 - 📝 **Markdown отчеты** — детальные отчеты о распределении
 
-## Быстрый старт
+## 🚀 Быстрый старт
 
 ### Установка
 
@@ -26,6 +26,25 @@ cd gdzmbzrc
 ```
 
 Требования: Python 3.7+
+
+### 🎯 Попробуйте готовые примеры!
+
+**Самый простой способ начать:**
+
+```bash
+# Базовый пример с приоритетами A → B → C
+bash examples/scenario1_basic.sh
+
+# Режим "Сервис" (анти-ноль логика)
+bash examples/scenario2_service_mode.sh
+
+# Комплексный сценарий
+bash examples/scenario7_complex.sh
+```
+
+📚 **Все примеры:** см. [examples/QUICKSTART.md](examples/QUICKSTART.md)
+
+📋 **Полный список сценариев:** см. [examples/README.md](examples/README.md)
 
 ### Запуск
 
