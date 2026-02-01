@@ -9,6 +9,7 @@ def test_a1_normal_case():
     """
     A1: Нормальный случай без Q6
     Приоритеты работают корректно: A → B → C
+    Есть заказ класса C, поэтому будет WARN (B3)
     """
     q1 = """ORD001|SKU-A|50|B|-
 ORD002|SKU-A|30|A|-
@@ -21,7 +22,8 @@ ORD003|SKU-A|20|C|-"""
     
     report = run_allocation(q1, q2, q3, q4, q5, q6)
     
-    assert report.status == "SUCCESS"
+    # WARN из-за класса C (B3)
+    assert report.status == "WARN"
     assert len(report.results) == 3
     
     # Проверка распределения по приоритетам
@@ -38,6 +40,28 @@ ORD003|SKU-A|20|C|-"""
     # C получает 0 (ничего не осталось)
     assert result_map["ORD003"].allocated == 0
     assert result_map["ORD003"].priority_class == "C"
+
+
+def test_a1b_normal_case_no_class_c():
+    """
+    A1b: Нормальный случай без класса C (полный SUCCESS)
+    """
+    q1 = """ORD001|SKU-A|50|B|-
+ORD002|SKU-A|30|A|-"""
+    q2 = "SKU-A|100"
+    q3 = "YES"
+    
+    report = run_allocation(q1, q2, q3)
+    
+    assert report.status == "SUCCESS"
+    assert len(report.results) == 2
+    
+    result_map = {r.order_id: r for r in report.results}
+    
+    # A получает 30 (весь запрос)
+    assert result_map["ORD002"].allocated == 30
+    # B получает 50 (весь запрос)
+    assert result_map["ORD001"].allocated == 50
 
 
 def test_a2_simplicity_mode():
